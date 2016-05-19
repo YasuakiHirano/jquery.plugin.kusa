@@ -5,6 +5,8 @@
 		<title></title>
 		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 		<script src="./kusa.js"></script>
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/solarized_dark.min.css">
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
 		<script>
 			function test1(){
 				$("body").kusa();
@@ -20,8 +22,17 @@
 							direction:0});
 			}
 		</script>
+		<script>
+		$(document).ready(function() {
+		$('pre').each(function(i, block) {
+		hljs.highlightBlock(block);
+		});
+		});
+		</script>
 		<style>
-			body{background:black;}
+			body{
+				background:black;
+			}
 		</style>
 	</head>
 	<body>
@@ -29,5 +40,26 @@
 			<input type="button" onclick="test2();" value="縦＋日本語" />
 			<input type="text" id="moji"  />
 			<input type="button" onclick="test3();" value="文字変え"  />
+<br/>
+
+<div id="main" style="margin-top:10px;color:white;">
+0.前準備
+<pre><code class="html">&lt;script src="./kusa.js"&gt;&lt;/script&gt;
+</code></pre>
+1.ノーマルスタイル
+<pre><code class="javascript">$("body").kusa();
+</code></pre>
+2.matflg:trueで日本語＆direction:1で縦
+<pre><code class="javascript">$("body").kusa({matflg:true, 
+	color:"#0000ff",
+	direction:1});
+</code></pre>
+3.setcharで文字列を変える
+<pre><code class="javascript">$("body").kusa({setchar:$("#moji").val(),
+	color:"#ff0000",
+	direction:0});
+</code></pre>
+</div>
+
 	</body>
 </html>

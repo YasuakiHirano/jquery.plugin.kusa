@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="jp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="./kusa.js"></script>
+		<script>
+			function test1(){
+				$("body").kusa();
+			}
+			function test2(){
+				$("body").kusa({matflg:true, 
+							color:"#0000ff",
+							direction:1});
+			}
+			function test3(){
+				$("body").kusa({setchar:$("#moji").val(), 
+							color:"#ff0000",
+							direction:0});
+			}
+		</script>
+		<style>
+			body{background:black;}
+		</style>
+	</head>
+	<body>
+			<input type="button" onclick="test1();" value="横流し" />
+			<input type="button" onclick="test2();" value="縦＋日本語" />
+			<input type="text" id="moji"  />
+			<input type="button" onclick="test3();" value="文字変え"  />
+	</body>
+</html>
